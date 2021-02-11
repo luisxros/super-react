@@ -1,20 +1,14 @@
 import React from 'react';
+import HeroCard from '../HeroCard/HeroCard';
 
-const SuperList = ({SuperList=[]}) => {
-  return (
-    <>
-    { SuperList.map((data,index) => {
-        if (data) {
-          return (
-            <div key={data.name}>
-              <h1>{data.name}</h1>
-	    </div>	
-    	   )	
-    	 }
-    	 return null
-    }) }
-    </>
-  );
+function SuperList(props) {
+    return (
+        <div className="List">
+            {props.superData.results.map((result, idx)=> (
+                <HeroCard key={idx} result={result} />
+            ))}
+        </div>
+    );
 }
 
 export default SuperList
